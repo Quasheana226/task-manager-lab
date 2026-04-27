@@ -36,6 +36,20 @@ const TaskItem: React.FC<TaskItemProps> = ({
         priorityColor = "rgb(43, 102, 21)" // Green text 
         priorityBackgroundColor = "#94e689" // light green background 
     }
+    //EVENT HANDLER SATUS DROPDOWN
+    // This function runs when user picks a new status from drop down menu 
+    // When  call onStatusChange which is passed in from the TaskList and tell this has a new status 
+
+    const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+
+        onStatusChange(task.id, e.target.value as TaskStatus);
+    };
+
+
+
+
+
+
 
 
 

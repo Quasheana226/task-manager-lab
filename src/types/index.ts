@@ -45,3 +45,12 @@ export interface TaskItemProps {
 }
 
 
+//  TASKFILTER PROPS
+
+// TaskFilter takes one call back  when the user changes filter 
+export interface TaskFilterProps {
+  onFilterChange: (filters: {
+    status?: TaskStatus;    // Optional user may not filter by status
+    priority?: 'low' | 'medium' | 'high'; // Optional user may not filter by priority
+  }) => void;
+}

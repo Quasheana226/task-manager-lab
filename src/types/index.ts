@@ -34,3 +34,14 @@ export interface TaskListProps {
    onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
   onDelete: (taskId: string) => void; //Array of task objects 
 }
+
+//TASKITEM PROPS
+//Taskitem should recieve one task and two call back functions to tell the parent something happen
+
+export interface TaskItemProps {
+  task: Task;//Single task the card will display
+  onStatusChange: (taskId: string, newStatus: TaskStatus) => void; //OnstatusChange is called when the user picks new status dropdown
+  onDelete: (taskId: string) => void; // onDelete called when the user clicks on button
+}
+
+

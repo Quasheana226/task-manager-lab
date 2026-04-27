@@ -1,0 +1,1 @@
+// Display one task as a card and shows title description priority  due date and status 

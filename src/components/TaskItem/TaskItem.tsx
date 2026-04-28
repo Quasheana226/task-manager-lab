@@ -1,6 +1,6 @@
 // Display one task as a card and shows title description priority  due date and status
 import React from "react";
-import { TaskItemProps, TaskStatus } from "../../types/index.ts";
+import type { TaskItemProps, TaskStatus } from "../../types/index.ts";
 
 //React.Fc means React function component  also destructure  the props
 

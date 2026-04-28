@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 
 // Import Types from type folder
-import { Task, TaskListProps, TaskStatus } from "../../types";
+import type { Task, TaskListProps, TaskStatus } from "../../types";
 
 
 //Import two child components that will render inside  this one

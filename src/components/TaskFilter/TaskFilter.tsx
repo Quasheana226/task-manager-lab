@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { TaskFilterProps, TaskStatus } from "../../types";
+import type { TaskFilterProps, TaskStatus } from "../../types";
 
 const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterChange }) => {
     //LOCAL STATE

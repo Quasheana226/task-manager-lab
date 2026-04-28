@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 import { TaskFilterProps, TaskStatus } from "../../types";
 
-const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterchange }) => {
+const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterChange }) => {
     //LOCAL STATE
     // When you call setvalue react re renders component
 
@@ -17,9 +17,9 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterchange }) => {
     const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newStatus = e.target.value; //get the chosen value from drop down
 
-        selectedStatus(newStatus); // Update local state show choice selected
+        setSelectedStatus(newStatus); // Update local state show choice selected
 
-        onFilterchange({
+        onFilterChange({
             status: newStatus ? (newStatus as TaskStatus) : undefined,
             priority: selectedPriority
                 ? (selectedPriority as "low" | "medium" | "high")
@@ -32,11 +32,12 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterchange }) => {
     const handlePriorityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newPriority = e.target.value;
 
-        selectedPriority(newPriority);
+        setSelectedPriority(newPriority); // Update local state with chosen priority
 
-        //Tell parent ehat filter is active
-        onFilterchange({
+        //Tell parent what filter is active
+        onFilterChange({
             status: selectedStatus ? (selectedStatus as TaskStatus) : undefined,
+            priority: newPriority ? (newPriority as "low" | "medium" | "high") : undefined, // send priority to parent
         });
     };
 
@@ -66,6 +67,28 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterchange }) => {
                     <option value="high">High</option>
                 </select>
             </div>
+
+            {/* Priority filter dropdown */}
+            <div style={styles.filterGroup}>
+                {/* label describes the dropdown */}
+                <label style={styles.label} htmlFor="priority-filter">
+                    Filter by Priority:
+                </label>
+
+                <select
+                    id="priority-filter"
+                    value={selectedPriority} // value comes from state
+                    onChange={handlePriorityChange} // run this function whenever user picks
+                    style={styles.select}
+                >
+                    {/* The first option shows all tasks with no priority filter */}
+                    <option value="">All Priorities</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
         </div>
     );
 };

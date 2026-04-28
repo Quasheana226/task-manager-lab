@@ -41,7 +41,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
     // When  call onStatusChange which is passed in from the TaskList and tell this has a new status
 
     const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-
+        // console.log('Task ID:', task.id, 'New Status:', e.target.value);
         onStatusChange(task.id, e.target.value as TaskStatus);
     };
 
@@ -56,9 +56,10 @@ const TaskItem: React.FC<TaskItemProps> = ({
 
         //if/else only delete if user picked ok
         if (confirmed) {
+            // console.log('Task Deleted:', task.id);
             onDelete(task.id) // Tell tasklist to remove task
         } else {
-            //user does nothing
+            // console.log('Delete Cancelled for Task:', task.id);
         }
     }
 

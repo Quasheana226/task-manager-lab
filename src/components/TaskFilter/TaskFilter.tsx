@@ -16,7 +16,7 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterChange }) => {
 
     const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newStatus = e.target.value; //get the chosen value from drop down
-
+        // console.log('Status Filter:', newStatus || 'all');
         setSelectedStatus(newStatus); // Update local state show choice selected
 
         onFilterChange({
@@ -31,7 +31,7 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ onFilterChange }) => {
 
     const handlePriorityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newPriority = e.target.value;
-
+        // console.log('Priority Filter:', newPriority || 'all');
         setSelectedPriority(newPriority); // Update local state with chosen priority
 
         //Tell parent what filter is active

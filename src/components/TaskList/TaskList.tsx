@@ -54,6 +54,7 @@ const TaskList: React.FC<TaskListProps> = ({ initialTasks }) => {
     //.map loops over each task and returns a new array
 
     const handleStatusChange = (taskId: string, newStatus: TaskStatus) => {
+        // console.log('Task ID:', taskId, 'New Status:', newStatus);
         const updatedTasks = tasks.map((task) => {
             if (task.id === taskId) {
                 //THis is what task the user changed
@@ -83,6 +84,7 @@ const TaskList: React.FC<TaskListProps> = ({ initialTasks }) => {
 
         });
 
+        // console.log('Task Deleted:', taskId, 'Tasks Remaining:', remainingTasks.length);
         setTasks(remainingTasks);
 
     };
